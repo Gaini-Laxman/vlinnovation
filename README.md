@@ -15,7 +15,7 @@ vlinnovation is a leading architectural firm specializing in innovative and sust
 
 ## About the Developer
 
-This website was built by [Alfred](https://vlinnovation.vercel.app) to enhance the digital presence of vlinnovation. The development focused on creating a visually appealing, user-friendly, and responsive site that effectively communicates the firm's values and expertise in the architectural field.
+This website was built by [Gaini Laxman](https://vlinnovation.vercel.app) to enhance the digital presence of vlinnovation. The development focused on creating a visually appealing, user-friendly, and responsive site that effectively communicates the firm's values and expertise in the architectural field.
 
 For more information about the development process or to discuss potential collaboration, please don't hesitate to get in touch.
 
