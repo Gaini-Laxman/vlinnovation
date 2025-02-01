@@ -190,46 +190,21 @@
         </div>
         <div class="row g-5">
           <div class="col-lg-6">
-            <form>
-              <div class="row g-3">
-                <div class="col-md-6">
-                  <input
-                    type="text"
-                    class="form-control border bg-white px-4"
-                    placeholder="Your Name"
-                    style="height: 55px"
-                  />
-                </div>
-                <div class="col-md-6">
-                  <input
-                    type="email"
-                    class="form-control border bg-white px-4"
-                    placeholder="Your Email"
-                    style="height: 55px"
-                  />
-                </div>
-                <div class="col-12">
-                  <input
-                    type="text"
-                    class="form-control border bg-white px-4"
-                    placeholder="Subject"
-                    style="height: 55px"
-                  />
-                </div>
-                <div class="col-12">
-                  <textarea
-                    class="form-control border bg-white px-4 py-3"
-                    rows="4"
-                    placeholder="Message"
-                  ></textarea>
-                </div>
-                <div class="col-12">
-                  <button class="btn btn-primary w-100 py-3" type="submit">
-                    Send Message
-                  </button>
-                </div>
-              </div>
-            </form>
+            <form
+  action="https://formspree.io/f/xeoekzvb"
+  method="POST"
+>
+  <label>
+    Your email:
+    <input type="email" name="email">
+  </label>
+  <label>
+    Your message:
+    <textarea name="message"></textarea>
+  </label>
+  <!-- your other form fields go here -->
+  <button type="submit">Send</button>
+</form>
           </div>
           <div class="col-lg-6">
             <iframe
