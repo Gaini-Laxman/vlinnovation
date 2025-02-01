@@ -190,46 +190,25 @@
         </div>
         <div class="row g-5">
           <div class="col-lg-6">
-            <form>
+            <form action="https://formspree.io/f/{xeoekzvb}" method="POST">
               <div class="row g-3">
                 <div class="col-md-6">
-                  <input
-                    type="text"
-                    class="form-control border bg-white px-4"
-                    placeholder="Your Name"
-                    style="height: 55px"
-                  />
+                  <input type="text" name="name" class="form-control border bg-white px-4" placeholder="Your Name" style="height: 55px" required />
                 </div>
                 <div class="col-md-6">
-                  <input
-                    type="email"
-                    class="form-control border bg-white px-4"
-                    placeholder="Your Email"
-                    style="height: 55px"
-                  />
+                  <input type="email" name="email" class="form-control border bg-white px-4" placeholder="Your Email" style="height: 55px" required />
                 </div>
                 <div class="col-12">
-                  <input
-                    type="text"
-                    class="form-control border bg-white px-4"
-                    placeholder="Subject"
-                    style="height: 55px"
-                  />
+                  <input type="text" name="subject" class="form-control border bg-white px-4" placeholder="Subject" style="height: 55px" required />
                 </div>
                 <div class="col-12">
-                  <textarea
-                    class="form-control border bg-white px-4 py-3"
-                    rows="4"
-                    placeholder="Message"
-                  ></textarea>
+                  <textarea name="message" class="form-control border bg-white px-4 py-3" rows="4" placeholder="Message" required></textarea>
                 </div>
                 <div class="col-12">
-                  <button class="btn btn-primary w-100 py-3" type="submit">
-                    Send Message
-                  </button>
+                  <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
                 </div>
               </div>
-            </form>
+            </form>            
           </div>
           <div class="col-lg-6">
             <iframe
