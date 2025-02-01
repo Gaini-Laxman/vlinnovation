@@ -190,48 +190,130 @@
         </div>
         <div class="row g-5">
           <div class="col-lg-6">
-            <form id="my-form" action="https://formspree.io/f/xeoekzvb" method="POST">
-              <label>Email:</label>
-              <input type="email" name="email" />
-              <label>Message:</label>
-              <input type="text" name="message" />
-              <button id="my-form-button">Submit</button>
-              <p id="my-form-status"></p>
-            </form>
-            
-            <!-- Place this script at the end of the body tag -->
-            <script>
-              var form = document.getElementById("my-form");
-              
-              async function handleSubmit(event) {
-                event.preventDefault();
-                var status = document.getElementById("my-form-status");
-                var data = new FormData(event.target);
-                fetch(event.target.action, {
-                  method: form.method,
-                  body: data,
-                  headers: {
-                      'Accept': 'application/json'
-                  }
-                }).then(response => {
-                  if (response.ok) {
-                    status.innerHTML = "Thanks for your submission!";
-                    form.reset()
-                  } else {
-                    response.json().then(data => {
-                      if (Object.hasOwn(data, 'errors')) {
-                        status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
-                      } else {
-                        status.innerHTML = "Oops! There was a problem submitting your form"
-                      }
-                    })
-                  }
-                }).catch(error => {
-                  status.innerHTML = "Oops! There was a problem submitting your form"
+            <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background: #f0f2f5;
+            font-family: 'Poppins', sans-serif;
+        }
+        .contact-container {
+            max-width: 500px;
+            margin: 50px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+        }
+        .contact-container:hover {
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        .form-control {
+            border-radius: 5px;
+            height: 50px;
+        }
+        textarea {
+            height: 120px !important;
+            resize: none;
+        }
+        .btn-submit {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+        .btn-submit:hover {
+            background: #0056b3;
+            transform: scale(1.05);
+        }
+        .form-status {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .icon {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="contact-container">
+        <h3 class="text-center mb-4"><i class="fa-solid fa-envelope"></i> Contact Us</h3>
+        
+        <form id="my-form" action="https://formspree.io/f/xeoekzvb" method="POST">
+            <div class="mb-3">
+                <label class="form-label"><i class="fa-solid fa-user icon"></i>Your Name</label>
+                <input type="text" class="form-control" name="name" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label"><i class="fa-solid fa-envelope icon"></i>Your Email</label>
+                <input type="email" class="form-control" name="email" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label"><i class="fa-solid fa-comment icon"></i>Your Message</label>
+                <textarea class="form-control" name="message" required></textarea>
+            </div>
+            <button id="my-form-button" class="btn-submit w-100">
+                <i class="fa-solid fa-paper-plane"></i> Send Message
+            </button>
+            <p id="my-form-status" class="form-status text-center text-primary"></p>
+        </form>
+    </div>
+</div>
+
+<!-- Form Handling Script -->
+<script>
+    var form = document.getElementById("my-form");
+
+    async function handleSubmit(event) {
+        event.preventDefault();
+        var status = document.getElementById("my-form-status");
+        var data = new FormData(event.target);
+
+        fetch(event.target.action, {
+            method: form.method,
+            body: data,
+            headers: { 'Accept': 'application/json' }
+        }).then(response => {
+            if (response.ok) {
+                status.innerHTML = "✅ Thanks for your submission!";
+                status.style.color = "green";
+                form.reset();
+            } else {
+                response.json().then(data => {
+                    status.innerHTML = data.errors ? data.errors.map(error => error.message).join(", ") : "❌ Oops! Something went wrong.";
+                    status.style.color = "red";
                 });
-              }
-              form.addEventListener("submit", handleSubmit)
-            </script>
+            }
+        }).catch(error => {
+            status.innerHTML = "❌ Oops! There was a problem submitting your form.";
+            status.style.color = "red";
+        });
+    }
+
+    form.addEventListener("submit", handleSubmit);
+</script>
+
+</body>
+</html>
+
           </div>
           <div class="col-lg-6">
             <iframe
